@@ -63,3 +63,6 @@ cutadapt -g AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -o output.fastq.gz HI.4019.002.ind
 ```
 
 ## 4) that's it!
+- this was a surface level overview cutadapt can trim both the 5' and 3' primers at the same time as well as conduct QC and filter reads
+- you can look at the documentation (linked above) for a much more thorough explanation of cutadapts capabilities
+  

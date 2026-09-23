@@ -16,13 +16,15 @@ So, we gotta trim them (and also clean our data, which some of these other tools
 ### There are a bunch of tools that we can use for this:
 [Trimmomatic](https://github.com/usadellab/Trimmomatic), [trimFastQ](https://rdrr.io/bioc/seqTools/man/trimFastq.html), [pTrimmer](https://github.com/DMU-lilab/pTrimmer), [skewer](https://github.com/relipmoc/skewer)
 
-^ these are a couple tools
 
 ### [sample_file1](https://github.com/rieseberglab/fastq-examples/blob/9d19a6b65ce1140b71337576068b5074ba92b0ab/data/HI.4019.002.index_7.ANN0831_R1.fastq.gz) 
  
  # [cutadapt](https://cutadapt.readthedocs.io/en/stable/guide.html)
  ---
 **cutadapt** is a command line tool to trim adapters/primers/quality trim/etc
+- you can use it for paired-end sequencing or single run sequencing
+- you can also use it to trim x nucleotides from the head or tail
+- trim nucleotides that have
 
 ## 1) install cutadapt (this step is almost word for word from the documentation, go there if you have questions)
 - you can do this with conda (a package manager for python)
@@ -59,9 +61,11 @@ NATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAAATCTCAG
 ```
 ## 3) using cutadapt
 ```
-cutadapt -g AGATCGGAAGAG -o output.fastq.gz HI.4019.002.index_7.ANN0831_R1.fastq.gz
+cutadapt -g TGAACTCCAGTCACCAGATCATCTCG -o output.fastq.gz HI.4019.002.index_7.ANN0831_R1.fastq.gz
 # looks for a 5' adapter & trims it and outputs it to the file you specify
 ```
 
 ## 4) that's it!
-
+```
+zcat output.fastq.gz | head -n 3
+```

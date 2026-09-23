@@ -1,2 +1,2 @@
 # primer-trimming
-A guide to using primer trimming tool rimmomatic
+A guide to using primer trimming tool trimmomatic

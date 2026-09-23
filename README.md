@@ -16,8 +16,6 @@ So, we gotta trim them (and also clean our data, which some of these other tools
 ### There are a bunch of tools that we can use for this:
 [Trimmomatic](https://github.com/usadellab/Trimmomatic), [trimFastQ](https://rdrr.io/bioc/seqTools/man/trimFastq.html), [pTrimmer](https://github.com/DMU-lilab/pTrimmer), [skewer](https://github.com/relipmoc/skewer)
 
-
-### [sample_file1](https://github.com/rieseberglab/fastq-examples/blob/9d19a6b65ce1140b71337576068b5074ba92b0ab/data/HI.4019.002.index_7.ANN0831_R1.fastq.gz) 
  
  # [cutadapt](https://cutadapt.readthedocs.io/en/stable/guide.html)
  ---
@@ -46,13 +44,12 @@ cutadapt --version
 # confirmation cutadapt was installed successfully
 ```
 ## 2) run these commands
+Download the [sample_file1](https://github.com/rieseberglab/fastq-examples/blob/9d19a6b65ce1140b71337576068b5074ba92b0ab/data/HI.4019.002.index_7.ANN0831_R1.fastq.gz) and move it into your directory you are using
 ```
-wget https://github.com/rieseberglab/fastq-examples/blob/9d19a6b65ce1140b71337576068b5074ba92b0ab/data/HI.4019.002.index_7.ANN0831_R1.fastq.gz
-# downloads the sample file
-
 zcat HI.4019.002.index_7.ANN0831_R1.fastq.gz | head -n 3
-# reads the first 3 lines of the file
 ```
+^ reads the first 3 lines of the file
+
 output:
 ```
 @K00271:89:HHWWNBBXX:2:1101:23277:1068 1:N:0:CAGATC
@@ -61,11 +58,8 @@ NATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTGAAAAAAAAAAATCTCAG
 ```
 ## 3) using cutadapt
 ```
-cutadapt -g TGAACTCCAGTCACCAGATCATCTCG -o output.fastq.gz HI.4019.002.index_7.ANN0831_R1.fastq.gz
+cutadapt -g AGATCGGAAGAGCACACGTCTGAACTCCAGTCA -o output.fastq.gz HI.4019.002.index_7.ANN0831_R1.fastq.gz
 # looks for a 5' adapter & trims it and outputs it to the file you specify
 ```
 
 ## 4) that's it!
-```
-zcat output.fastq.gz | head -n 3
-```

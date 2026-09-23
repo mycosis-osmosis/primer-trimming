@@ -27,7 +27,7 @@ So, we gotta trim them (and also clean our data, which some of these other tools
 ## 1) install cutadapt (this step is almost word for word from the documentation, go there if you have questions)
 - you can do this with conda (a package manager for python)
 - a couple other ways, if you wanna do this check out the documentation linked above
-- run this in the terminal (after installing conda, if you havent already, which you should if ur doing bioinformatics)
+- run this in the terminal (after installing conda, if you havent already)
 ```
 conda config --add channels bioconda
 conda config --add channels conda-forge
